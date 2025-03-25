@@ -1,0 +1,35 @@
+[project]
+src = "src"
+out = "out"
+dot_env = ".env"
+
+[networks.pyevm]
+is_zksync = false
+
+[networks.anvil]
+url = "http://127.0.0.1:8545"
+prompt_live = false
+save_to_db = false
+chain_id = 31337
+
+[networks.mainnet-fork]
+url = "https://eth.llamarpc.com"
+explorer_uri = "https://api.etherscan.com/api/"
+explorer_type = "etherscan"
+explorer_api_key="${ETHERSCAN_TOKEN}"
+chain_id = 1
+fork = true
+block_identifier = "latest"
+
+[networks.mainnet]
+url = "https://eth.llamarpc.com"
+chain_id = 1
+explorer_uri = "https://eth.blockscout.com/"
+explorer_type = "blockscout"
+explorer_api_key="${BLOCKSCOUT_ETHEREUM_KEY}"
+default_account_name="gramsci"
+
+
+[networks.mainnet-fork.contracts.lending_factory]
+address = "0xea6876dde9e3467564acbee1ed5bac88783205e0"
+abi_from_explorer = true
